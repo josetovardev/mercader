@@ -1,0 +1,13 @@
+<main class="container">
+  <section class="shop-products">
+    <mat-card *ngFor="let product of products">
+      <mat-card-title>{{product.name}}</mat-card-title>
+      <img mat-card-image src={{product.image}} alt={{product.name}}>
+      <mat-card-content>
+        <p>{{product.description}}</p>
+        <p>S/ {{product.price}}</p>
+        <p>S/ {{product.sale}}</p>
+      </mat-card-content>
+    </mat-card>
+  </section>
+</main>

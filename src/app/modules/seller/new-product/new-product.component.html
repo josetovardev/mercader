@@ -1,0 +1,56 @@
+<a mat-raised-button color="accent" routerLink="/dashboard/productos">Ver productos</a>
+
+<form [formGroup]="form">
+
+  <mat-form-field appearance="outline">
+    <mat-label>Nombre del producto</mat-label>
+    <input formControlName="name" matInput>
+    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    <mat-hint *ngIf="form.hasError('required', 'name')">Ingresa el nombre que se mostrará en la tienda.</mat-hint>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Descripción</mat-label>
+    <input formControlName="description" matInput>
+    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    <mat-hint>Ingresa una breve descripción de tu producto.</mat-hint>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>SKU</mat-label>
+    <input formControlName="sku" type="number" class="example-right-align" matInput>
+    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    <mat-hint>Solo puede contener números</mat-hint>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Precio regular</mat-label>
+    <input formControlName="price" matInput type="number" class="example-right-align" placeholder="0">
+    <span matPrefix>S/&nbsp;</span>
+    <mat-icon matSuffix>attach_money</mat-icon>
+    <mat-hint>Precio de venta.</mat-hint>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Precio de oferta</mat-label>
+    <input min="" formControlName="sale" matInput type="number" class="example-right-align" placeholder="0">
+    <span matPrefix>S/&nbsp;</span>
+    <mat-icon matSuffix>attach_money</mat-icon>
+    <mat-hint>Menor al precio regular.</mat-hint>
+  </mat-form-field>
+  <mat-form-field class="example-form-field" appearance="outline">
+    <mat-label>Rango de oferta</mat-label>
+    <mat-date-range-input [rangePicker]="campaignOnePicker">
+      <input formControlName="startSale" matStartDate placeholder="Inicio de oferta">
+      <input formControlName="endSale" matEndDate placeholder="Fin de la oferta">
+    </mat-date-range-input>
+    <mat-datepicker-toggle matSuffix [for]="campaignOnePicker"></mat-datepicker-toggle>
+    <mat-date-range-picker #campaignOnePicker></mat-date-range-picker>
+  </mat-form-field>
+
+  <input formControlName="images" #imga type="file" required>
+
+  <button [disabled]="!form.dirty || !form.valid" (click)=" addProduct(form.value, imga.files)" mat-raised-button
+    color="accent">Crear producto</button>
+
+  <div *ngIf="showProgress">
+    <span>Uploading {{progressBar}}%</span>
+    <mat-progress-bar mode="determinate" [value]="progressBar"> </mat-progress-bar>
+  </div>
+</form>

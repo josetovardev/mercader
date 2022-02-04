@@ -1,1 +1,140 @@
-/* You can add global styles to this file, and also import other style files */
+// regular style toast
+@import '~ngx-toastr/toastr';
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+
+
+  body {
+
+    .container {
+      max-width: 165rem;
+      margin: 0 auto;
+    }
+
+    .container-full {
+      max-width: 100%;
+      margin: 0 auto;
+      padding: 0 3rem;
+    }
+
+
+  }
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+// Header styles
+
+.main-header {
+  margin-bottom: 2rem;
+
+  h1 {
+    a {
+      color: #fff;
+      text-decoration: none;
+    }
+  }
+}
+
+nav {
+  margin-left: auto;
+
+
+
+  ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+
+    li {
+
+      &:not(:first-child) {
+        margin-left: 3rem;
+      }
+
+      a {
+        text-decoration: none;
+        color: #fff;
+      }
+    }
+  }
+}
+
+// Card styles
+.shop-products {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-gap: 3rem;
+
+  .mat-card {
+    text-align: center;
+  }
+}
+
+
+// Form
+
+
+input.example-right-align::-webkit-outer-spin-button,
+input.example-right-align::-webkit-inner-spin-button {
+  display: none;
+}
+
+input.example-right-align {
+  -moz-appearance: textfield;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-prefix {
+  top: 0 !important;
+}
+
+form {
+  max-width: 40rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+
+  button {
+    margin-top: 3rem;
+  }
+
+}
+
+// Table
+.products-table {
+  width: 100%;
+  text-align: left;
+  margin-top: 2rem;
+
+  tr {
+    th {
+      padding: 1rem;
+      background-color: #ededed;
+
+      &:nth-child(2) {
+        width: 10rem;
+      }
+
+      &:nth-child(3) {
+        width: 15rem;
+      }
+    }
+
+    td {
+      padding: 1rem;
+    }
+  }
+
+  img {
+    width: 100%;
+  }
+}

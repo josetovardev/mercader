@@ -1,0 +1,20 @@
+<a mat-raised-button color="accent" routerLink="/dashboard/nuevo">Crear Producto</a>
+
+<table class="products-table">
+  <tr>
+    <th>#</th>
+    <th>SKU</th>
+    <th>Imagen</th>
+    <th>Nombre del producto</th>
+    <th>Precio</th>
+    <th>Oferta</th>
+  </tr>
+  <tr *ngFor="let product of userProducts">
+    <td>{{userProducts.indexOf(product) + 1}}</td>
+    <td>{{product.sku}}</td>
+    <td> <img src={{product.image}} alt=""></td>
+    <td>{{product.name}}</td>
+    <td>S/ {{product.price}}</td>
+    <td>S/ {{product.sale}}</td>
+  </tr>
+</table>
